@@ -69,12 +69,12 @@ public class Product extends BaseEntity{
         this.price = price;
     }
 
-    public Map<String, String> getParameter() {
-        return parameter;
+    public void addParameter(String key, String value){
+        parameter.put(key, value);
     }
 
-    public void setParameter(Map<String, String> parameter) {
-        this.parameter = parameter;
+    public void removeParameter(String key){
+        parameter.remove(key);
     }
 
     @Override

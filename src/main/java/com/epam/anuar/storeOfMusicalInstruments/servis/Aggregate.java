@@ -7,15 +7,8 @@ import org.joda.money.Money;
 import java.util.ArrayList;
 
 public class Aggregate {
-    private ArrayList aggregateArray;
+    private ArrayList aggregateArray = new ArrayList();
     private Money sumPrice;
-
-    public Aggregate(ArrayList aggregateArray, BaseEntity... args) {
-        for (BaseEntity arg : args) {
-            aggregateArray.add(arg);
-        }
-        this.aggregateArray = aggregateArray;
-    }
 
     public Money calculateAggregatePrice(ArrayList<Product> aggregateArray){
         sumPrice = Money.parse("KZT 0");
