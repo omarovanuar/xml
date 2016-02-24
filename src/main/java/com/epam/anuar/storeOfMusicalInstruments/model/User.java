@@ -1,16 +1,19 @@
 package com.epam.anuar.storeOfMusicalInstruments.model;
 
 public class User extends BaseEntity{
-
-    private String status;
+    public enum Status{
+        ADMIN, MODERATOR, REGISTERED_USER, GUEST
+    }
+    private Status status;
     private String name;
     private String email;
     private String phoneNumber;
 
+
     public User() {
     }
 
-    public User(int id, String status, String name, String phoneNumber, String email) {
+    public User(int id, Status status, String name, String phoneNumber, String email) {
         super(id);
         this.status = status;
         this.name = name;
@@ -22,18 +25,18 @@ public class User extends BaseEntity{
     public String toString() {
         return "User{" +
                 super.toString() +
-                "status='" + status + '\'' +
-                ", \nname='" + name + '\'' +
-                ", \nname='" + phoneNumber + '\'' +
-                ", \nemail='" + email + '\'' +
-                '}' + "\n";
+                ", status='" + status + '\'' +
+                ", name='" + name + '\'' +
+                ", name='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

@@ -3,29 +3,30 @@ package com.epam.anuar.storeOfMusicalInstruments.model;
 import org.joda.money.Money;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.stream.Collectors;
 
 public class Order extends BaseEntity{
     private String customerName;
     private String phoneNumber;
     private Money price;
     private String creditCard;
-    private ArrayList<Product> productList;
+    private ArrayList<Product> productList = new ArrayList<>();
+    private ArrayList<String> productNameList = new ArrayList<>();
     private GregorianCalendar date;
 
     public Order() {
     }
 
-    public Order(int id, String customerName, String phoneNumber, Money price, String creditCard, GregorianCalendar date,
-                 ArrayList<Product> productList) {
+    public Order(int id, String customerName, String phoneNumber, String creditCard, GregorianCalendar date) {
         super(id);
         this.customerName = customerName;
         this.phoneNumber = phoneNumber;
-        this.price = price;
         this.creditCard = creditCard;
         this.date = date;
-        this.productList = productList;
     }
+
 
     @Override
     public String toString() {
@@ -35,7 +36,7 @@ public class Order extends BaseEntity{
                 ", price=" + price +
                 ", creditCard='" + creditCard + '\'' +
                 ", date='" + date.getTime() + '\'' +
-                ", \nproductList=" + productList +
+                ", \nproductList=" + productNameList +
                 '}';
     }
 
@@ -59,10 +60,6 @@ public class Order extends BaseEntity{
         return price;
     }
 
-    public void setPrice(Money price) {
-        this.price = price;
-    }
-
     public String getCreditCard() {
         return creditCard;
     }
@@ -79,11 +76,14 @@ public class Order extends BaseEntity{
         this.date = date;
     }
 
-    public ArrayList<Product> getProductList() {
-        return productList;
+    public void setOrderParameters(Product... products){
+        price = Money.parse("KZT 0");
+        for (Product product : products) {
+            productList.add(product);
+            price = price.plus(product.getPrice());
+            productNameList.add(product.getTitle());
+        }
     }
 
-    public void setProductList(ArrayList<Product> productList) {
-        this.productList = productList;
-    }
+
 }

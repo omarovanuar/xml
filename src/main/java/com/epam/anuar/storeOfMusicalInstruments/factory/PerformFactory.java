@@ -1,6 +1,8 @@
 package com.epam.anuar.storeOfMusicalInstruments.factory;
 
+import com.epam.anuar.storeOfMusicalInstruments.model.Order;
 import com.epam.anuar.storeOfMusicalInstruments.model.Product;
+import com.epam.anuar.storeOfMusicalInstruments.model.User;
 import com.epam.anuar.storeOfMusicalInstruments.servis.Aggregate;
 import com.epam.anuar.storeOfMusicalInstruments.servis.PriceCompare;
 import com.epam.anuar.storeOfMusicalInstruments.servis.Search;
@@ -8,16 +10,14 @@ import org.joda.money.Money;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class PerformFactory {
-    private ArrayList<Product> productArray;
-    private Money sumPrice = Money.parse("KZT 0");
-    private Product searchResult;
 
     public void perform(){
 
-        productArray = new ArrayList<>();
+        ArrayList<Product> productArray = new ArrayList<>();
 
         Product product1 = new Product(53, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), new HashMap<>());
         product1.addParameter("color", "red-black");
@@ -67,7 +67,7 @@ public class PerformFactory {
         aggregate.addProduct(product1, product7, product4, product5);
         PriceCompare priceCompare = new PriceCompare();
         Collections.sort(aggregate.getAggregateArray(), priceCompare);
-        sumPrice = aggregate.calculateAggregatePrice(aggregate.getAggregateArray());
+        Money sumPrice = aggregate.calculateAggregatePrice(aggregate.getAggregateArray());
 
         System.out.println(aggregate + "\n");
         System.out.println("Price of aggregate: " + sumPrice + "\n");
@@ -79,7 +79,27 @@ public class PerformFactory {
         System.out.println("Price of aggregate: " + sumPrice + "\n");
 
         Search search = new Search();
-        searchResult = search.search(aggregate.getAggregateArray(), product1);
+        Product searchResult = search.search(aggregate.getAggregateArray(), product1);
         System.out.println("Found: " + searchResult);
+
+        ArrayList<User> userList = new ArrayList<>();
+        userList.add(new User(1, User.Status.ADMIN, "Togayev Noyan", "8-707-4728462", "togayev.n@mail.ru"));
+        userList.add(new User(2, User.Status.MODERATOR, "Daukaev Roman", "8-771-8973285", "simuran@mail.ru"));
+        userList.add(new User(3, User.Status.REGISTERED_USER, "Golovin Mikhail", "8-701-8923753", "mike91@mail.ru"));
+        userList.add(new User(4, User.Status.GUEST, "Almukhanov Aset", "8-701-2342420", "almukhanov@mail.ru"));
+        userList.add(new User(5, User.Status.REGISTERED_USER, "Smagulova Dinara", "8-778-7774799", "dinara_16_92@mail.ru"));
+        userList.forEach(System.out::println);
+
+        Order order1 = new Order(234, userList.get(2).getName(), userList.get(2).getPhoneNumber(),
+                "MasterCard", new GregorianCalendar(2015, 3, 2, 15, 0));
+        order1.setOrderParameters(product1, product2, product7);
+
+        Order order2 = new Order(235, userList.get(4).getName(), userList.get(4).getPhoneNumber(),
+                "VISA", new GregorianCalendar(2015, 4, 23, 12, 30));
+        order2.setOrderParameters(product1, product3, product5);
+
+        System.out.println();
+        System.out.println(order1);
+        System.out.println(order2);
     }
 }

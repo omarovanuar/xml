@@ -5,13 +5,13 @@ import com.epam.anuar.storeOfMusicalInstruments.model.Product;
 import org.joda.money.Money;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Aggregate {
     private ArrayList aggregateArray = new ArrayList();
-    private Money sumPrice;
 
     public Money calculateAggregatePrice(ArrayList<Product> aggregateArray){
-        sumPrice = Money.parse("KZT 0");
+        Money sumPrice = Money.parse("KZT 0");
         for (Product o : aggregateArray) {
             sumPrice = sumPrice.plus(o.getPrice());
         }
@@ -19,9 +19,7 @@ public class Aggregate {
     }
 
     public void addProduct(BaseEntity... args){
-        for (BaseEntity arg : args) {
-            this.aggregateArray.add(arg);
-        }
+        Collections.addAll(this.aggregateArray, args);
     }
 
     public void removeProduct(BaseEntity... args){
