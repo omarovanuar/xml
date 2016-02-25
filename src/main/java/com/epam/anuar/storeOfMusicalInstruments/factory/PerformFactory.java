@@ -1,5 +1,6 @@
 package com.epam.anuar.storeOfMusicalInstruments.factory;
 
+import com.epam.anuar.storeOfMusicalInstruments.model.Accounting;
 import com.epam.anuar.storeOfMusicalInstruments.model.Order;
 import com.epam.anuar.storeOfMusicalInstruments.model.Product;
 import com.epam.anuar.storeOfMusicalInstruments.model.User;
@@ -89,6 +90,7 @@ public class PerformFactory {
         userList.add(new User(4, User.Status.GUEST, "Almukhanov Aset", "8-701-2342420", "almukhanov@mail.ru"));
         userList.add(new User(5, User.Status.REGISTERED_USER, "Smagulova Dinara", "8-778-7774799", "dinara_16_92@mail.ru"));
         userList.forEach(System.out::println);
+        System.out.println();
 
         Order order1 = new Order(234, userList.get(2).getName(), userList.get(2).getPhoneNumber(),
                 "MasterCard", new GregorianCalendar(2015, 3, 2, 15, 0));
@@ -98,8 +100,12 @@ public class PerformFactory {
                 "VISA", new GregorianCalendar(2015, 4, 23, 12, 30));
         order2.setOrderParameters(product1, product3, product5);
 
-        System.out.println();
         System.out.println(order1);
-        System.out.println(order2);
+        System.out.println(order2 + "\n");
+
+        Accounting accounting = new Accounting(1024, new GregorianCalendar(2015, 12, 31));
+        accounting.addSoldProduct(order1, order2);
+        accounting.priceSum();
+        System.out.println(accounting);
     }
 }

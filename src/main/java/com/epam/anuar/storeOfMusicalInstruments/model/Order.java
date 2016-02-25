@@ -27,19 +27,6 @@ public class Order extends BaseEntity{
         this.date = date;
     }
 
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "customerName='" + customerName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", price=" + price +
-                ", creditCard='" + creditCard + '\'' +
-                ", date='" + date.getTime() + '\'' +
-                ", \nproductList=" + productNameList +
-                '}';
-    }
-
     public String getCustomerName() {
         return customerName;
     }
@@ -85,5 +72,19 @@ public class Order extends BaseEntity{
         }
     }
 
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "customerName='" + customerName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", price=" + price +
+                ", creditCard='" + creditCard + '\'' +
+                ", date='" + date.getTime() + '\'' +
+                ", \nproductList=" + productNameList +
+                '}';
+    }
 }

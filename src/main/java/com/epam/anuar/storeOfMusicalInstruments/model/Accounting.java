@@ -6,41 +6,31 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class Accounting extends BaseEntity {
-    private ArrayList<Product> soldProduct;
+    private ArrayList<Product> soldProductList = new ArrayList<>();
     private GregorianCalendar date;
-    private int orderNumber;
-    private Money resultPrice = Money.parse("KZT 0");
+    private Money resultPrice;
 
-    public Accounting(int id, ArrayList<Product> soldProduct, GregorianCalendar date, int orderNumber) {
+    public Accounting(int id,  GregorianCalendar date) {
         super(id);
-        this.soldProduct = soldProduct;
         this.date = date;
-        this.orderNumber = orderNumber;
     }
 
-    public Money priceSum(ArrayList<Product> soldProduct){
-        this.soldProduct = soldProduct;
-        for (Product product : soldProduct) {
+    public Money priceSum(){
+        resultPrice = Money.parse("KZT 0");
+        for (Product product : soldProductList) {
             resultPrice = resultPrice.plus(product.getPrice());
         }
         return resultPrice;
     }
 
-    @Override
-    public String toString() {
-        return "Accounting:\n" + super.toString() + "\n" +
-                soldProduct +
-                ", date=" + date.getTime() +
-                ", orderNumber=" + orderNumber +
-                ", resultPrice=" + resultPrice;
+    public void addSoldProduct(Order... orders) {
+        for (Order order : orders) {
+            soldProductList.addAll(order.getProductList());
+        }
     }
 
-    public ArrayList<Product> getSoldProduct() {
-        return soldProduct;
-    }
-
-    public void setSoldProduct(ArrayList<Product> soldProduct) {
-        this.soldProduct = soldProduct;
+    public ArrayList<Product> getSoldProductList() {
+        return soldProductList;
     }
 
     public GregorianCalendar getDate() {
@@ -51,19 +41,19 @@ public class Accounting extends BaseEntity {
         this.date = date;
     }
 
-    public int getOrderNumber() {
-        return orderNumber;
-    }
-
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
     public Money getResultPrice() {
         return resultPrice;
     }
 
     public void setResultPrice(Money resultPrice) {
         this.resultPrice = resultPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Accounting:\n" + super.toString() +
+                ", resultPrice=" + resultPrice +
+                ", date=" + date.getTime() + "\n" +
+                soldProductList;
     }
 }
