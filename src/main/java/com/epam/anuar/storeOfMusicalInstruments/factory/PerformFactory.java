@@ -20,7 +20,7 @@ public class PerformFactory {
 
         ArrayList<Product> productArray = new ArrayList<>();
 
-        Product product1 = new Product(53, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), new HashMap<>());
+        Product product1 = new Product(53, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"));
         product1.addParameter("color", "red-black");
         product1.addParameter("Strings Number", "12");
         product1.addParameter("Fret Number", "20");
