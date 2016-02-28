@@ -9,7 +9,6 @@ public class User extends BaseEntity{
     private String email;
     private String phoneNumber;
 
-
     public User() {
     }
 
