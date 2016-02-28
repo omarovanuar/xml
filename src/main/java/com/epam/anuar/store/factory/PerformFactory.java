@@ -1,24 +1,20 @@
-package com.epam.anuar.storeOfMusicalInstruments.factory;
+package com.epam.anuar.store.factory;
 
-import com.epam.anuar.storeOfMusicalInstruments.model.Accounting;
-import com.epam.anuar.storeOfMusicalInstruments.model.Order;
-import com.epam.anuar.storeOfMusicalInstruments.model.Product;
-import com.epam.anuar.storeOfMusicalInstruments.model.User;
-import com.epam.anuar.storeOfMusicalInstruments.servis.Aggregate;
-import com.epam.anuar.storeOfMusicalInstruments.servis.PriceCompare;
-import com.epam.anuar.storeOfMusicalInstruments.servis.Search;
+import com.epam.anuar.store.model.*;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.joda.money.Money;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
+import java.util.*;
 
 public class PerformFactory {
 
+    public static final Comparator<Product> PRODUCT_PRICE_COMPARATOR = (o1, o2) -> o1.getPrice().compareTo(o2.getPrice());
+    public static final Comparator<Order> ORDER_PRICE_COMPARATOR = (o1, o2) -> o1.getPrice().compareTo(o2.getPrice());
+    public static final Comparator<Product> PRODUCT_TITLE_COMPARATOR = (o1, o2) -> o1.getTitle().compareTo(o2.getTitle());
+
     public void perform(){
 
-        ArrayList<Product> productArray = new ArrayList<>();
+        List<Product> productArray = new ArrayList<>();
 
         Product product1 = new Product(53, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"));
         product1.addParameter("color", "red-black");
@@ -64,24 +60,10 @@ public class PerformFactory {
         product7.addParameter("Material", "Silver");
         productArray.add(product7);
 
-        Aggregate aggregate = new Aggregate();
-        aggregate.addProduct(product1, product7, product4, product5);
-        PriceCompare priceCompare = new PriceCompare();
-        Collections.sort(aggregate.getAggregateArray(), priceCompare);
-        Money sumPrice = aggregate.calculateAggregatePrice(aggregate.getAggregateArray());
 
-        System.out.println(aggregate + "\n");
-        System.out.println("Price of aggregate: " + sumPrice + "\n");
-
-        aggregate.addProduct(product6);
-        sumPrice = aggregate.calculateAggregatePrice(aggregate.getAggregateArray());
-
-        System.out.println(aggregate+ "\n");
-        System.out.println("Price of aggregate: " + sumPrice + "\n");
-
-        Search search = new Search();
-        Product searchResult = search.search(aggregate.getAggregateArray(), product1);
-        System.out.println("Found: " + searchResult);
+        Collections.sort(productArray, PRODUCT_PRICE_COMPARATOR);
+        System.out.println(productArray + "\n");
+        System.out.println(search(productArray, product3) + "\n");
 
         ArrayList<User> userList = new ArrayList<>();
         userList.add(new User(1, User.Status.ADMIN, "Togayev Noyan", "8-707-4728462", "togayev.n@mail.ru"));
@@ -92,20 +74,31 @@ public class PerformFactory {
         userList.forEach(System.out::println);
         System.out.println();
 
-        Order order1 = new Order(234, userList.get(2).getName(), userList.get(2).getPhoneNumber(),
-                "MasterCard", new GregorianCalendar(2015, 3, 2, 15, 0));
-        order1.setOrderParameters(product1, product2, product7);
-
-        Order order2 = new Order(235, userList.get(4).getName(), userList.get(4).getPhoneNumber(),
-                "VISA", new GregorianCalendar(2015, 4, 23, 12, 30));
-        order2.setOrderParameters(product1, product3, product5);
+        Order order1 = new Order(234, userList.get(2), "MasterCard", new GregorianCalendar(2015, 3, 2, 15, 0));
+        order1.addParameters(product1, product2, product7);
+        order1.calculatePrice();
+        Order order2 = new Order(235, userList.get(4), "VISA", new GregorianCalendar(2015, 4, 23, 12, 30));
+        order2.addParameters(product1, product3, product5);
+        order2.calculatePrice();
 
         System.out.println(order1);
-        System.out.println(order2 + "\n");
+        System.out.println(order2 +
+                "\n");
 
         Accounting accounting = new Accounting(1024, new GregorianCalendar(2015, 12, 31));
         accounting.addSoldProduct(order1, order2);
         accounting.priceSum();
         System.out.println(accounting);
     }
+
+    private Product search(List<Product> arrayList, Product product){
+        Product result = new Product();
+        for (Product o : arrayList) {
+            if (o.equals(product)){
+                result = o;
+            }
+        }
+        return result;
+    }
+
 }

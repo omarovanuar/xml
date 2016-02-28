@@ -1,30 +1,29 @@
-package com.epam.anuar.storeOfMusicalInstruments.model;
+package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
-import java.util.stream.Collectors;
+import java.util.List;
 
 public class Order extends BaseEntity{
     private String customerName;
     private String phoneNumber;
     private Money price;
     private String creditCard;
-    private ArrayList<Product> productList = new ArrayList<>();
-    private ArrayList<String> productNameList = new ArrayList<>();
-    private GregorianCalendar date;
+    private List<Product> productList = new ArrayList<>();
+    private GregorianCalendar executeTime;
 
     public Order() {
     }
 
-    public Order(int id, String customerName, String phoneNumber, String creditCard, GregorianCalendar date) {
+    public Order(int id, User user, String creditCard, GregorianCalendar executeTime) {
         super(id);
-        this.customerName = customerName;
-        this.phoneNumber = phoneNumber;
+        this.customerName = user.getName();
+        this.phoneNumber = user.getPhoneNumber();
         this.creditCard = creditCard;
-        this.date = date;
+        this.executeTime = executeTime;
     }
 
     public String getCustomerName() {
@@ -55,24 +54,40 @@ public class Order extends BaseEntity{
         this.creditCard = creditCard;
     }
 
-    public GregorianCalendar getDate() {
-        return date;
+    public GregorianCalendar getExecuteTime() {
+        return executeTime;
     }
 
-    public void setDate(GregorianCalendar date) {
-        this.date = date;
+    public void setExecuteTime(GregorianCalendar executeTime) {
+        this.executeTime = executeTime;
     }
 
-    public void setOrderParameters(Product... products){
+    public void addParameters(Product... products){
+        Collections.addAll(productList, products);
+    }
+
+    public void calculatePrice() {
         price = Money.parse("KZT 0");
-        for (Product product : products) {
-            productList.add(product);
+        for (Product product : productList) {
             price = price.plus(product.getPrice());
-            productNameList.add(product.getTitle());
         }
     }
 
-    public ArrayList<Product> getProductList() {
+    public void removeParameters(Product... products) {
+        for (Product product : products) {
+            productList.remove(product);
+        }
+    }
+
+    public String productNameList(){
+        String name = "";
+        for (Product product : productList) {
+            name += (product.getTitle() + "\n");
+        }
+        return name;
+    }
+
+    public List<Product> getProductList() {
         return productList;
     }
 
@@ -83,8 +98,7 @@ public class Order extends BaseEntity{
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", price=" + price +
                 ", creditCard='" + creditCard + '\'' +
-                ", date='" + date.getTime() + '\'' +
-                ", \nproductList=" + productNameList +
-                '}';
+                ", executeTime='" + executeTime.getTime() + '\'' +
+                "\n" + productNameList() + '}';
     }
 }

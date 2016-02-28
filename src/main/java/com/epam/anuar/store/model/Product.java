@@ -1,4 +1,4 @@
-package com.epam.anuar.storeOfMusicalInstruments.model;
+package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
 

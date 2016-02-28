@@ -1,12 +1,13 @@
-package com.epam.anuar.storeOfMusicalInstruments.model;
+package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class Accounting extends BaseEntity {
-    private ArrayList<Product> soldProductList = new ArrayList<>();
+    private List<Product> soldProductList = new ArrayList<>();
     private GregorianCalendar date;
     private Money resultPrice;
 
@@ -29,7 +30,7 @@ public class Accounting extends BaseEntity {
         }
     }
 
-    public ArrayList<Product> getSoldProductList() {
+    public List<Product> getSoldProductList() {
         return soldProductList;
     }
 

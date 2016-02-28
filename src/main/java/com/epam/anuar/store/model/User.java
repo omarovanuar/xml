@@ -1,4 +1,4 @@
-package com.epam.anuar.storeOfMusicalInstruments.model;
+package com.epam.anuar.store.model;
 
 public class User extends BaseEntity{
     public enum Status{

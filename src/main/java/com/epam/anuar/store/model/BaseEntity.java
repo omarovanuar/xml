@@ -1,4 +1,4 @@
-package com.epam.anuar.storeOfMusicalInstruments.model;
+package com.epam.anuar.store.model;
 
 public class BaseEntity {
     private Integer id;
@@ -24,7 +24,11 @@ public class BaseEntity {
 
     @Override
     public int hashCode() {
-        return id;
+        if (id != null) {
+            return id;
+        } else {
+            throw new NullPointerException();
+        }
     }
 
     @Override
