@@ -1,10 +1,10 @@
 package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
+import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Order extends BaseEntity{
@@ -13,12 +13,12 @@ public class Order extends BaseEntity{
     private Money price;
     private String creditCard;
     private List<Product> productList = new ArrayList<>();
-    private GregorianCalendar executeTime;
+    private DateTime executeTime;
 
     public Order() {
     }
 
-    public Order(int id, User user, String creditCard, GregorianCalendar executeTime) {
+    public Order(int id, User user, String creditCard, DateTime executeTime) {
         super(id);
         this.customerName = user.getName();
         this.phoneNumber = user.getPhoneNumber();
@@ -54,11 +54,11 @@ public class Order extends BaseEntity{
         this.creditCard = creditCard;
     }
 
-    public GregorianCalendar getExecuteTime() {
+    public DateTime getExecuteTime() {
         return executeTime;
     }
 
-    public void setExecuteTime(GregorianCalendar executeTime) {
+    public void setExecuteTime(DateTime executeTime) {
         this.executeTime = executeTime;
     }
 
@@ -98,7 +98,7 @@ public class Order extends BaseEntity{
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", price=" + price +
                 ", creditCard='" + creditCard + '\'' +
-                ", executeTime='" + executeTime.getTime() + '\'' +
+                ", executeTime='" + executeTime + '\'' +
                 "\n" + productNameList() + '}';
     }
 }

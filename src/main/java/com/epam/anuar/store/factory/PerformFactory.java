@@ -1,10 +1,17 @@
 package com.epam.anuar.store.factory;
 
-import com.epam.anuar.store.model.*;
-import com.sun.org.apache.xpath.internal.operations.Or;
+import com.epam.anuar.store.model.Accounting;
+import com.epam.anuar.store.model.Order;
+import com.epam.anuar.store.model.Product;
+import com.epam.anuar.store.model.User;
 import org.joda.money.Money;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class PerformFactory {
 
@@ -74,18 +81,20 @@ public class PerformFactory {
         userList.forEach(System.out::println);
         System.out.println();
 
-        Order order1 = new Order(234, userList.get(2), "MasterCard", new GregorianCalendar(2015, 3, 2, 15, 0));
+        DateTimeFormatter df = DateTimeFormat.forPattern("dd.MM.yyyy HH:mm");
+
+        Order order1 = new Order(234, userList.get(2), "MasterCard", df.parseDateTime("03.02.2015 15:22"));
         order1.addParameters(product1, product2, product7);
         order1.calculatePrice();
-        Order order2 = new Order(235, userList.get(4), "VISA", new GregorianCalendar(2015, 4, 23, 12, 30));
+        Order order2 = new Order(235, userList.get(4), "VISA", df.parseDateTime("23.04.2015 12:17"));
         order2.addParameters(product1, product3, product5);
         order2.calculatePrice();
 
         System.out.println(order1);
-        System.out.println(order2 +
-                "\n");
+        System.out.println(order2 + "\n");
 
-        Accounting accounting = new Accounting(1024, new GregorianCalendar(2015, 12, 31));
+        DateTimeFormatter df2 = DateTimeFormat.forPattern("dd.MM.yyyy");
+        Accounting accounting = new Accounting(1024, df2.parseDateTime("31.12.2015"));
         accounting.addSoldProduct(order1, order2);
         accounting.priceSum();
         System.out.println(accounting);
