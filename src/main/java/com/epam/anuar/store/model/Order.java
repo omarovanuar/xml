@@ -4,46 +4,39 @@ import org.joda.money.Money;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Order extends BaseEntity{
     private String customerName;
     private String phoneNumber;
-    private Money price;
+    private Money productListPrice;
     private String creditCard;
     private List<Product> productList = new ArrayList<>();
-    private DateTime executeTime;
+    private DateTime executeDate;
 
     public Order() {
     }
 
-    public Order(int id, User user, String creditCard, DateTime executeTime) {
+    public Order(int id, User user, String creditCard, Cart cart) {
         super(id);
         this.customerName = user.getName();
         this.phoneNumber = user.getPhoneNumber();
         this.creditCard = creditCard;
-        this.executeTime = executeTime;
+        this.executeDate = cart.getExecuteDate();
+        this.productList = cart.getProductList();
+        this.productListPrice = cart.getProductListPrice();
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Money getPrice() {
-        return price;
+    public Money getProductListPrice() {
+        return productListPrice;
     }
 
     public String getCreditCard() {
@@ -54,29 +47,8 @@ public class Order extends BaseEntity{
         this.creditCard = creditCard;
     }
 
-    public DateTime getExecuteTime() {
-        return executeTime;
-    }
-
-    public void setExecuteTime(DateTime executeTime) {
-        this.executeTime = executeTime;
-    }
-
-    public void addParameters(Product... products){
-        Collections.addAll(productList, products);
-    }
-
-    public void calculatePrice() {
-        price = Money.parse("KZT 0");
-        for (Product product : productList) {
-            price = price.plus(product.getPrice());
-        }
-    }
-
-    public void removeParameters(Product... products) {
-        for (Product product : products) {
-            productList.remove(product);
-        }
+    public DateTime getExecuteDate() {
+        return executeDate;
     }
 
     public String productNameList(){
@@ -87,18 +59,14 @@ public class Order extends BaseEntity{
         return name;
     }
 
-    public List<Product> getProductList() {
-        return productList;
-    }
-
     @Override
     public String toString() {
         return "Order{" +
                 "customerName='" + customerName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", price=" + price +
+                ", productListPrice=" + productListPrice +
                 ", creditCard='" + creditCard + '\'' +
-                ", executeTime='" + executeTime + '\'' +
+                ", executeDate='" + executeDate + '\'' +
                 "\n" + productNameList() + '}';
     }
 }
