@@ -9,25 +9,31 @@ public class Product extends BaseEntity{
     private String title;
     private Money price = Money.parse("KZT 0");
     private Map<String, String> parameter = new HashMap<>();
+    private boolean available;
+    private int count;
 
     public Product() {
     }
 
-    public Product(int id) {
+    public Product(Integer id) {
         super(id);
     }
 
-    public Product(int id, String title, Money price) {
+    public Product(int id, String title, Money price, int count) {
         super(id);
         this.title = title;
         this.price = price;
+        this.count = count;
+        this.available = isAvailable();
     }
 
-    public Product(int id, String title, Money price, Map<String, String> parameter) {
+    public Product(int id, String title, Money price, Map<String, String> parameter, int count) {
         super(id);
         this.title = title;
         this.price = price;
         this.parameter = parameter;
+        this.count = count;
+        this.available = isAvailable();
     }
 
     @Override
@@ -51,6 +57,14 @@ public class Product extends BaseEntity{
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (parameter != null ? parameter.hashCode() : 0);
         return result;
+    }
+
+    public boolean isAvailable() {
+        return this.count > 0;
+    }
+
+    public String stringAvailable() {
+        return (this.available) ?  "yes" : "no";
     }
 
     public String getTitle() {
@@ -77,11 +91,21 @@ public class Product extends BaseEntity{
         parameter.remove(key);
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        if (count < 0) this.count = count;
+        else this.count = 0;
+    }
+
     @Override
     public String toString() {
         return "Product: " + title + "\n" +
                 super.toString() +
-                ", price: " + price + "\n" +
+                ", price: " + price +
+                ", available: " + stringAvailable() + "\n" +
                 parameter + "\n";
     }
 }

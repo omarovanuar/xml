@@ -1,5 +1,9 @@
 package com.epam.anuar.store.model;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -17,5 +21,10 @@ public class Service {
             }
         }
         return result;
+    }
+
+    public static DateTime formatDate(String date) {
+        DateTimeFormatter df = DateTimeFormat.forPattern("dd.MM.yyyy HH:mm");
+        return df.parseDateTime(date);
     }
 }

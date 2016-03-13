@@ -17,12 +17,12 @@ public class Order extends BaseEntity{
     public Order() {
     }
 
-    public Order(int id, User user, String creditCard, Cart cart) {
+    public Order(int id, User user, Cart cart, DateTime executeDate) {
         super(id);
         this.customerName = user.getName();
         this.phoneNumber = user.getPhoneNumber();
-        this.creditCard = creditCard;
-        this.executeDate = cart.getExecuteDate();
+        this.creditCard = user.getCreditCard();
+        this.executeDate = executeDate;
         this.productList = cart.getProductList();
         this.productListPrice = cart.getProductListPrice();
     }
@@ -61,7 +61,7 @@ public class Order extends BaseEntity{
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Order " + super.toString() + "\n" +
                 "customerName='" + customerName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", productListPrice=" + productListPrice +

@@ -3,12 +3,11 @@ package com.epam.anuar.store.model;
 public class BaseEntity {
     private Integer id;
 
-    public BaseEntity(Integer id) {
-        this.id = id;
+    public BaseEntity() {
     }
 
-    public BaseEntity() {
-
+    public BaseEntity(Integer id) {
+        this.id = id;
     }
 
     @Override

@@ -2,18 +2,23 @@ package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart extends BaseEntity {
     private List<Product> productList = new ArrayList<>();
-    private DateTime executeDate;
+    private DateTime createDate;
     private Money productListPrice;
 
-    public Cart(int id, DateTime date) {
+    public Cart() {
+    }
+
+    public Cart(int id, DateTime createDate) {
         super(id);
-        this.executeDate = date;
+        this.createDate = createDate;
     }
 
     public Money calculateProductListPrice(){
@@ -40,12 +45,12 @@ public class Cart extends BaseEntity {
         return productList;
     }
 
-    public DateTime getExecuteDate() {
-        return executeDate;
+    public DateTime getCreateDate() {
+        return createDate;
     }
 
-    public void setExecuteDate(DateTime executeDate) {
-        this.executeDate = executeDate;
+    public void setCreateDate(DateTime createDate) {
+        this.createDate = createDate;
     }
 
     public Money getProductListPrice() {
@@ -56,7 +61,7 @@ public class Cart extends BaseEntity {
     public String toString() {
         return "Cart:\n" + super.toString() +
                 ", productListPrice=" + productListPrice +
-                ", executeDate=" + executeDate + "\n" +
+                ", createDate=" + createDate + "\n" +
                 productList;
     }
 }
