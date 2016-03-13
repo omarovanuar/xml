@@ -2,6 +2,8 @@ package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
 
+import java.util.Enumeration;
+
 public class User extends BaseEntity{
     public enum Status{
         ADMIN, MODERATOR, REGISTERED_USER, GUEST
@@ -13,6 +15,8 @@ public class User extends BaseEntity{
     private String creditCard;
     private String email;
     private Money wallet;
+    private String login;
+    private String password;
 
     public User() {
     }
@@ -96,5 +100,21 @@ public class User extends BaseEntity{
 
     public void setWallet(Money wallet) {
         this.wallet = wallet;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

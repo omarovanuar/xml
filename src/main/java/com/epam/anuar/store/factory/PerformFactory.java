@@ -84,7 +84,7 @@ public class PerformFactory {
                 "Forte Bank 8973-2421-4235-4643",
                 "mike91@mail.ru",
                 Money.parse("KZT 30000")));
-        userList.add(new User(4, User.Status.GUEST,
+        userList.add(new User(4, User.Status.REGISTERED_USER,
                 "Almukhanov Aset",
                 "Shahterov 2-15",
                 "8-701-2342420",
