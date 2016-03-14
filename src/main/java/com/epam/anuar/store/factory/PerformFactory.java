@@ -10,10 +10,11 @@ import java.util.List;
 import static com.epam.anuar.store.model.Service.formatDate;
 
 public class PerformFactory {
+    public List<Product> productArray = new ArrayList<>();
 
     public void perform(){
 
-        List<Product> productArray = new ArrayList<>();
+
 
         Product product1 = new Product(100, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), 3);
         product1.addParameter("color", "red-black");
@@ -59,7 +60,8 @@ public class PerformFactory {
         product7.addParameter("material", "Silver");
         productArray.add(product7);
 
-        Collections.sort(productArray, Service.PRODUCT_PRICE_COMPARATOR);
+//        Collections.sort(productArray, Service.PRODUCT_PRICE_COMPARATOR);
+//        System.out.println(productArray);
 
 
         ArrayList<User> userList = new ArrayList<>();

@@ -17,7 +17,7 @@ import java.util.List;
 public class UserSAXParser extends DefaultHandler{
     private String tempVal;
     private User tempUser;
-    private List myEmpls = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
 
     public void parseDocument() {
@@ -45,7 +45,7 @@ public class UserSAXParser extends DefaultHandler{
     public void endElement(String uri, String localName, String qName) throws SAXException {
         switch (qName){
             case "User":
-                myEmpls.add(tempUser);
+                users.add(tempUser);
                 break;
             case "id":
                 tempUser.setId(Integer.parseInt(tempVal));
@@ -82,12 +82,12 @@ public class UserSAXParser extends DefaultHandler{
     }
 
     public void printData(){
-        for (Object myEmpl : myEmpls) {
+        for (Object myEmpl : users) {
             System.out.println(myEmpl.toString());
         }
     }
 
-    public List getMyEmpls() {
-        return myEmpls;
+    public List getUsers() {
+        return users;
     }
 }

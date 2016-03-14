@@ -11,7 +11,7 @@ public class Product extends BaseEntity{
     private Money price = Money.parse("KZT 0");
     private Map<String, String> parameter = new HashMap<>();
     private boolean available;
-    private int count;
+    private Integer count;
 
     public Product() {
     }
@@ -92,13 +92,17 @@ public class Product extends BaseEntity{
         parameter.remove(key);
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         if (count < 0) this.count = count;
         else this.count = 0;
+    }
+
+    public Map<String, String> getParameter() {
+        return parameter;
     }
 
     @Override

@@ -16,26 +16,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserXmlCreator {
+public class UserXmlBuilder {
     List<User> users = new ArrayList<>();
     private Document dom;
 
-    public UserXmlCreator(List<User> users) {
+    public UserXmlBuilder(List<User> users) {
         this.users = users;
     }
 
-    public void createDocument() {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            dom = db.newDocument();
-
-        }catch(ParserConfigurationException pce) {
-            System.out.println("Error while trying to instantiate DocumentBuilder " + pce);
-            System.exit(1);
-        }
-
-    }
+//    public void createDocument() {
+//        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//        try {
+//            DocumentBuilder db = dbf.newDocumentBuilder();
+//            dom = db.newDocument();
+//
+//        }catch(ParserConfigurationException pce) {
+//            System.out.println("Error while trying to instantiate DocumentBuilder " + pce);
+//            System.exit(1);
+//        }
+//
+//    }
 
     public void createDOMTree(){
         Element rootEle = dom.createElement("Users");

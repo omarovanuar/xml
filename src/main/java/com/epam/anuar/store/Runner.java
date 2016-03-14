@@ -1,31 +1,40 @@
 package com.epam.anuar.store;
 
-import com.epam.anuar.store.xml.creator.UserXmlCreator;
-import com.epam.anuar.store.xml.parser.UserSAXParser;
+import com.epam.anuar.store.factory.PerformFactory;
+import com.epam.anuar.store.xml.creator.ProductXmlBuilder;
 
 public class Runner {
     public static void main(String[] args) {
-//        PerformFactory performFactory = new PerformFactory();
-//        performFactory.perform();
+        PerformFactory performFactory = new PerformFactory();
+        performFactory.perform();
 
 //        UserDomParser udp = new UserDomParser();
 //        udp.parseXmlFile();
 //        udp.parseDocument();
 //        udp.printData();
 //
-//        UserXmlCreator udc = new UserXmlCreator(udp.getUsers());
+//        UserXmlBuilder udc = new UserXmlBuilder(udp.getUsers());
+//        udc.createDocument();
+//        udc.createDOMTree();
+//        udc.printToFile();
+//
+//        UserSAXParser userSAXParser = new UserSAXParser();
+//        userSAXParser.parseDocument();
+//        userSAXParser.printData();
+//
+//        UserXmlBuilder udc1 = new UserXmlBuilder(userSAXParser.getUsers());
 //        udc.createDocument();
 //        udc.createDOMTree();
 //        udc.printToFile();
 
-        UserSAXParser userSAXParser = new UserSAXParser();
-        userSAXParser.parseDocument();
-        userSAXParser.printData();
+//        ProductDomParser pdp = new ProductDomParser();
+//        pdp.parseXmlFile();
+//        pdp.parseDocument();
+//        pdp.printData();
 
-        UserXmlCreator udc = new UserXmlCreator(userSAXParser.getMyEmpls());
-        udc.createDocument();
-        udc.createDOMTree();
-        udc.printToFile();
-
+        ProductXmlBuilder productXmlCreator = new ProductXmlBuilder(performFactory.productArray);
+        productXmlCreator.createDocument();
+        productXmlCreator.createDOMTree();
+        productXmlCreator.printToFile();
     }
 }
