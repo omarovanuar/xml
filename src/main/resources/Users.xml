@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Users>
+    <User>
+        <id>1</id>
+        <status>ADMIN</status>
+        <name>Togayev Noyan</name>
+        <address>Yzeva 16-22</address>
+        <phoneNumber>8-707-4728462</phoneNumber>
+        <creditCard>Center Credit 2345-8797-1652-5432</creditCard>
+        <email>togayev.n@mail.ru</email>
+        <wallet>KZT 10000.00</wallet>
+        <login>togay</login>
+        <password>jd98dh9hr1</password>
+    </User>
+    <User>
+        <id>2</id>
+        <status>MODERATOR</status>
+        <name>Daukaev Roman</name>
+        <address>17 mkr-33</address>
+        <phoneNumber>8-771-8973285</phoneNumber>
+        <creditCard>Center Credit 8974-2143-0823-2948</creditCard>
+        <email>simuran@mail.ru</email>
+        <wallet>KZT 20000.00</wallet>
+        <login>simurashka</login>
+        <password>asdm09vjj</password>
+    </User>
+    <User>
+        <id>3</id>
+        <status>REGISTERED_USER</status>
+        <name>Golovin Mikhail</name>
+        <address>Gogolya 13-41</address>
+        <phoneNumber>8-701-8923753</phoneNumber>
+        <creditCard>Forte Bank 8973-2421-4235-4643</creditCard>
+        <email>mike91@mail.ru</email>
+        <wallet>KZT 30000.00</wallet>
+        <login>mike91</login>
+        <password>fk092j3fmdlk</password>
+    </User>
+    <User>
+        <id>4</id>
+        <status>REGISTERED_USER</status>
+        <name>Almukhanov Aset</name>
+        <address>Shahterov 2-15</address>
+        <phoneNumber>8-701-2342420</phoneNumber>
+        <creditCard>Halyk Bank 3257-9142-5632-6321</creditCard>
+        <email>almukhanov@mail.ru</email>
+        <wallet>KZT 20000.00</wallet>
+        <login>almuhaset</login>
+        <password>juuv283uhfi</password>
+    </User>
+    <User>
+        <id>5</id>
+        <status>REGISTERED_USER</status>
+        <name>Smagulova Dinara</name>
+        <address>Mira B. 27a-6</address>
+        <phoneNumber>8-778-7774799</phoneNumber>
+        <creditCard>Kaspi Bank 9752-8298-1841-5216</creditCard>
+        <email>dinara_16_92@mail.ru</email>
+        <wallet>KZT 50000.00</wallet>
+        <login>duny922016</login>
+        <password>saj0uvjij2k</password>
+    </User>
+</Users>

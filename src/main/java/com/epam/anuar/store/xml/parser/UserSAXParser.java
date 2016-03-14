@@ -1,4 +1,4 @@
-package com.epam.anuar.store.xml.sax.parser;
+package com.epam.anuar.store.xml.parser;
 
 import com.epam.anuar.store.Runner;
 import com.epam.anuar.store.model.User;
@@ -85,5 +85,9 @@ public class UserSAXParser extends DefaultHandler{
         for (Object myEmpl : myEmpls) {
             System.out.println(myEmpl.toString());
         }
+    }
+
+    public List getMyEmpls() {
+        return myEmpls;
     }
 }

@@ -1,4 +1,4 @@
-package com.epam.anuar.store.xml.dom.parser;
+package com.epam.anuar.store.xml.parser;
 
 import com.epam.anuar.store.Runner;
 import com.epam.anuar.store.model.User;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UserDomParser {
     private Document dom;
-    private List<User> myEmpls = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public void parseXmlFile(){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -38,7 +38,7 @@ public class UserDomParser {
             for(int i = 0 ; i < nl.getLength();i++) {
                 Element el = (Element)nl.item(i);
                 User e = getUser(el);
-                myEmpls.add(e);
+                users.add(e);
             }
         }
     }
@@ -87,12 +87,12 @@ public class UserDomParser {
     }
 
     public void printData(){
-        for (Object myEmpl : myEmpls) {
-            System.out.println(myEmpl.toString());
+        for (User user : users) {
+            System.out.println(user.toString());
         }
     }
 
-    public List<User> getMyEmpls() {
-        return myEmpls;
+    public List<User> getUsers() {
+        return users;
     }
 }

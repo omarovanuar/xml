@@ -1,4 +1,4 @@
-package com.epam.anuar.store.xml.dom.creator;
+package com.epam.anuar.store.xml.creator;
 
 import com.epam.anuar.store.model.User;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
@@ -14,15 +14,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class UserDomCreator {
-    List<User> myUsers = new ArrayList<>();
+public class UserXmlCreator {
+    List<User> users = new ArrayList<>();
     private Document dom;
 
-    public UserDomCreator(List<User> myUsers) {
-        this.myUsers = myUsers;
+    public UserXmlCreator(List<User> users) {
+        this.users = users;
     }
 
     public void createDocument() {
@@ -41,9 +40,7 @@ public class UserDomCreator {
     public void createDOMTree(){
         Element rootEle = dom.createElement("Users");
         dom.appendChild(rootEle);
-        Iterator it  = myUsers.iterator();
-        while(it.hasNext()) {
-            User b = (User) it.next();
+        for (User b : users) {
             Element userEle = createBookElement(b);
             rootEle.appendChild(userEle);
         }

@@ -5,6 +5,7 @@ import org.joda.money.Money;
 import java.util.HashMap;
 import java.util.Map;
 
+// TODO Unfinished class
 public class Product extends BaseEntity{
     private String title;
     private Money price = Money.parse("KZT 0");

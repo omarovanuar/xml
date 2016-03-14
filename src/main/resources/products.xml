@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Products>
+    <Product>
+        <id>100</id>
+        <title>Acoustic Guitar Ibanez-NX-630</title>
+        <price>KZT 360.99</price>
+        <parameters>
+            <color>red-black</color>
+            <stringsNumber>12</stringsNumber>
+            <fretNumber>20</fretNumber>
+        </parameters>
+        <count>3</count>
+    </Product>
+    <Product>
+        <id>101</id>
+        <title>Electroguitar Fender-Squire-MM60</title>
+        <price>KZT 500.65</price>
+        <parameters>
+            <color>black</color>
+            <stringsNumber>12</stringsNumber>
+            <fretNumber>20</fretNumber>
+            <pickUpScheme>H_S</pickUpScheme>
+            <toneRegulatorNumber>2</toneRegulatorNumber>
+        </parameters>
+        <count>5</count>
+    </Product>
+    <Product>
+        <id>102</id>
+        <title>Electro-acoustic guitar Fender SXC</title>
+        <price>KZT 415.48</price>
+        <parameters>
+            <color>brown</color>
+            <stringsNumber>12</stringsNumber>
+            <fretNumber>20</fretNumber>
+            <volumeInstallation>regulator</volumeInstallation>
+            <preamplifier>yes</preamplifier>
+        </parameters>
+        <count>3</count>
+    </Product>
+    <Product>
+        <id>103</id>
+        <title>Amplifier Samsung-SuperBass-s300</title>
+        <price>KZT 222.35</price>
+        <parameters>
+            <powerCapacity>150V</powerCapacity>
+            <guitarInput>AUX</guitarInput>
+            <dimension>20x20x30</dimension>
+            <weight>12 kg</weight>
+        </parameters>
+        <count>2</count>
+    </Product>
+    <Product>
+        <id>104</id>
+        <title>Effectprocessor YAMAHA-EP300</title>
+        <price>KZT 214.65</price>
+        <parameters>
+            <effectNumber>20</effectNumber>
+            <userProgramNumber>10</userProgramNumber>
+            <tuner>yes</tuner>
+        </parameters>
+        <count>2</count>
+    </Product>
+    <Product>
+        <id>105</id>
+        <title>Case for Fender Squire electroguitar</title>
+        <price>KZT 21.3</price>
+        <parameters>
+            <color>black</color>
+        </parameters>
+        <count>10</count>
+    </Product>
+    <Product>
+        <id>106</id>
+        <title>Guitar strings D'dario</title>
+        <price>KZT 10.5</price>
+        <parameters>
+            <diameters>10, 11, 12, 13, 14, 15</diameters>
+            <material>silver</material>
+        </parameters>
+        <count>35</count>
+    </Product>
+</Products>

@@ -17,37 +17,37 @@ public class PerformFactory {
 
         Product product1 = new Product(100, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), 3);
         product1.addParameter("color", "red-black");
-        product1.addParameter("Strings Number", "12");
-        product1.addParameter("Fret Number", "20");
+        product1.addParameter("stringsNumber", "12");
+        product1.addParameter("fretNumber", "20");
         productArray.add(product1);
 
         Product product2 = new Product(101, "Electroguitar Fender-Squire-MM60", Money.parse("KZT 500.65"), 5);
         product2.addParameter("color", "black");
-        product2.addParameter("Strings Number", "6");
-        product2.addParameter("Fret Number", "20");
-        product2.addParameter("Pick-up Scheme", "H_S");
-        product2.addParameter("Number of tone regulators", "2");
+        product2.addParameter("stringsNumber", "6");
+        product2.addParameter("fretNumber", "20");
+        product2.addParameter("pickUpScheme", "H_S");
+        product2.addParameter("toneRegulatorNumber", "2");
         productArray.add(product2);
 
         Product product3 = new Product(102, "Electro-acoustic guitar Fender SXC", Money.parse("KZT 415.48"),3);
         product3.addParameter("color", "brown");
-        product3.addParameter("Strings Number", "6");
-        product3.addParameter("Fret Number", "21");
-        product3.addParameter("Volume installation", "regulator");
-        product3.addParameter("Preamplifier", "yes");
+        product3.addParameter("stringsNumber", "6");
+        product3.addParameter("fretNumber", "21");
+        product3.addParameter("volumeInstallation", "regulator");
+        product3.addParameter("preamplifier", "yes");
         productArray.add(product3);
 
         Product product4 = new Product(103, "Amplifier Samsung-SuperBass-s300", Money.parse("KZT 222.35"), 2);
-        product4.addParameter("Power capacity", "150V");
-        product4.addParameter("Guitar input", "AUX");
-        product4.addParameter("Dimension", "20x20x30");
-        product4.addParameter("Weight", "12 kg");
+        product4.addParameter("powerCapacity", "150V");
+        product4.addParameter("guitarInput", "AUX");
+        product4.addParameter("dimension", "20x20x30");
+        product4.addParameter("weight", "12 kg");
         productArray.add(product4);
 
         Product product5 = new Product(104, "Effectprocessor YAMAHA-EP300", Money.parse("KZT 214.65"), 2);
-        product5.addParameter("Effect number", "20");
-        product5.addParameter("User-Program number", "10");
-        product5.addParameter("Tuner", "yes");
+        product5.addParameter("effectNumber", "20");
+        product5.addParameter("userProgramNumber", "10");
+        product5.addParameter("tuner", "yes");
         productArray.add(product5);
 
         Product product6 = new Product(105, "Case for Fender Squire electroguitar", Money.parse("KZT 21.3"), 10);
@@ -55,8 +55,8 @@ public class PerformFactory {
         productArray.add(product6);
 
         Product product7 = new Product(106, "Guitar strings D'dario", Money.parse("KZT 10.5"), 35);
-        product7.addParameter("Diameters", "10, 11, 12, 13, 14, 15");
-        product7.addParameter("Material", "Silver");
+        product7.addParameter("diameters", "10, 11, 12, 13, 14, 15");
+        product7.addParameter("material", "Silver");
         productArray.add(product7);
 
         Collections.sort(productArray, Service.PRODUCT_PRICE_COMPARATOR);
