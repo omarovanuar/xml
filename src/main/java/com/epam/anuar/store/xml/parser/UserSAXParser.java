@@ -82,8 +82,8 @@ public class UserSAXParser extends DefaultHandler{
     }
 
     public void printData(){
-        for (Object myEmpl : users) {
-            System.out.println(myEmpl.toString());
+        for (User user : users) {
+            System.out.println(user.toString());
         }
     }
 

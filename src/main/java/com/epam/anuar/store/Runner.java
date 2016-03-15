@@ -2,11 +2,12 @@ package com.epam.anuar.store;
 
 import com.epam.anuar.store.factory.PerformFactory;
 import com.epam.anuar.store.xml.creator.ProductXmlBuilder;
+import com.epam.anuar.store.xml.parser.ProductDomParser;
 
 public class Runner {
     public static void main(String[] args) {
-        PerformFactory performFactory = new PerformFactory();
-        performFactory.perform();
+//        PerformFactory performFactory = new PerformFactory();
+//        performFactory.perform();
 
 //        UserDomParser udp = new UserDomParser();
 //        udp.parseXmlFile();
@@ -32,9 +33,9 @@ public class Runner {
 //        pdp.parseDocument();
 //        pdp.printData();
 
-        ProductXmlBuilder productXmlCreator = new ProductXmlBuilder(performFactory.productArray);
-        productXmlCreator.createDocument();
-        productXmlCreator.createDOMTree();
-        productXmlCreator.printToFile();
+//        ProductXmlBuilder productXmlCreator = new ProductXmlBuilder(performFactory.productArray);
+//        productXmlCreator.createDocument();
+//        productXmlCreator.createDOMTree();
+//        productXmlCreator.printToFile();
     }
 }

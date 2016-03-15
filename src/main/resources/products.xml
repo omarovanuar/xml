@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Products>
-    <Product>
+<products>
+    <product>
         <id>100</id>
         <title>Acoustic Guitar Ibanez-NX-630</title>
         <price>KZT 360.99</price>
-        <parameters>
-            <color>red-black</color>
-            <stringsNumber>12</stringsNumber>
-            <fretNumber>20</fretNumber>
-        </parameters>
         <count>3</count>
-    </Product>
-    <Product>
+        <parameter>
+            <color>red-black</color>
+            <fretNumber>20</fretNumber>
+            <stringsNumber>12</stringsNumber>
+        </parameter>
+    </product>
+    <product>
         <id>101</id>
         <title>Electroguitar Fender-Squire-MM60</title>
         <price>KZT 500.65</price>
-        <parameters>
+        <count>5</count>
+        <parameter>
             <color>black</color>
-            <stringsNumber>12</stringsNumber>
             <fretNumber>20</fretNumber>
             <pickUpScheme>H_S</pickUpScheme>
+            <stringsNumber>12</stringsNumber>
             <toneRegulatorNumber>2</toneRegulatorNumber>
-        </parameters>
-        <count>5</count>
-    </Product>
-    <Product>
+        </parameter>
+    </product>
+    <product>
         <id>102</id>
         <title>Electro-acoustic guitar Fender SXC</title>
         <price>KZT 415.48</price>
-        <parameters>
-            <color>brown</color>
-            <stringsNumber>12</stringsNumber>
-            <fretNumber>20</fretNumber>
-            <volumeInstallation>regulator</volumeInstallation>
-            <preamplifier>yes</preamplifier>
-        </parameters>
         <count>3</count>
-    </Product>
-    <Product>
+        <parameter>
+            <color>brown</color>
+            <fretNumber>20</fretNumber>
+            <preamplifier>yes</preamplifier>
+            <stringsNumber>12</stringsNumber>
+            <volumeInstallation>regulator</volumeInstallation>
+        </parameter>
+    </product>
+    <product>
         <id>103</id>
         <title>Amplifier Samsung-SuperBass-s300</title>
         <price>KZT 222.35</price>
-        <parameters>
-            <powerCapacity>150V</powerCapacity>
-            <guitarInput>AUX</guitarInput>
-            <dimension>20x20x30</dimension>
-            <weight>12 kg</weight>
-        </parameters>
         <count>2</count>
-    </Product>
-    <Product>
+        <parameter>
+            <dimension>20x20x30</dimension>
+            <guitarInput>AUX</guitarInput>
+            <powerCapacity>150V</powerCapacity>
+            <weight>12 kg</weight>
+        </parameter>
+    </product>
+    <product>
         <id>104</id>
         <title>Effectprocessor YAMAHA-EP300</title>
         <price>KZT 214.65</price>
-        <parameters>
-            <effectNumber>20</effectNumber>
-            <userProgramNumber>10</userProgramNumber>
-            <tuner>yes</tuner>
-        </parameters>
         <count>2</count>
-    </Product>
-    <Product>
+        <parameter>
+            <effectNumber>20</effectNumber>
+            <tuner>yes</tuner>
+            <userProgramNumber>10</userProgramNumber>
+        </parameter>
+    </product>
+    <product>
         <id>105</id>
         <title>Case for Fender Squire electroguitar</title>
         <price>KZT 21.3</price>
-        <parameters>
-            <color>black</color>
-        </parameters>
         <count>10</count>
-    </Product>
-    <Product>
+        <parameter>
+            <color>black</color>
+        </parameter>
+    </product>
+    <product>
         <id>106</id>
         <title>Guitar strings D'dario</title>
         <price>KZT 10.5</price>
-        <parameters>
+        <count>35</count>
+        <parameter>
             <diameters>10, 11, 12, 13, 14, 15</diameters>
             <material>silver</material>
-        </parameters>
-        <count>35</count>
-    </Product>
-</Products>
+        </parameter>
+    </product>
+</products>

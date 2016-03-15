@@ -14,8 +14,6 @@ public class PerformFactory {
 
     public void perform(){
 
-
-
         Product product1 = new Product(100, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), 3);
         product1.addParameter("color", "red-black");
         product1.addParameter("stringsNumber", "12");
@@ -61,8 +59,6 @@ public class PerformFactory {
         productArray.add(product7);
 
 //        Collections.sort(productArray, Service.PRODUCT_PRICE_COMPARATOR);
-//        System.out.println(productArray);
-
 
         ArrayList<User> userList = new ArrayList<>();
         userList.add(new User(1, User.Status.ADMIN,
@@ -100,8 +96,6 @@ public class PerformFactory {
                 "Kaspi Bank 9752-8298-1841-5216",
                 "dinara_16_92@mail.ru",
                 Money.parse("KZT 50000")));
-        userList.forEach(System.out::println);
-        System.out.println();
 
         Cart cart1 = new Cart(1000, formatDate("03.02.2015 15:00"));
         cart1.addCartProduct(product1, product6, product7);
@@ -110,19 +104,12 @@ public class PerformFactory {
         cart2.addCartProduct(product2, product5, product6);
         cart2.calculateProductListPrice();
 
-        System.out.println(cart1);
-        System.out.println(cart2 + "\n");
-
         Order order1 = new Order(200, userList.get(2), cart1, formatDate("03.02.2015 15:24"));
         Order order2 = new Order(201, userList.get(4), cart2, formatDate("24.04.2015 14:17"));
-
-        System.out.println(order1);
-        System.out.println(order2 + "\n");
 
         ShipmentReceipt shipment1 = new ShipmentReceipt(500, "KAZPOST", Money.parse("KZT 300"), "Golubie prudi 13-1", order1);
         ShipmentReceipt shipment2 = new ShipmentReceipt(501, "KAZPOST", Money.parse("KZT 300"), "Satibaldina 4-13", order1);
 
-        System.out.println(shipment1 + "\n" + shipment2);
     }
 
 

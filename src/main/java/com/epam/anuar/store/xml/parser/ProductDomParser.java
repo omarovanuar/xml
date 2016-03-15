@@ -5,6 +5,7 @@ import com.epam.anuar.store.model.Product;
 import org.joda.money.Money;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -12,14 +13,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProductDomParser {
     private Document dom;
     private List<Product> products = new ArrayList<>();
+//    private Map<String, String> parameters = new TreeMap<>();
 
     public void parseXmlFile(){
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -35,7 +34,7 @@ public class ProductDomParser {
     public void parseDocument(){
         Element docEle = dom.getDocumentElement();
 
-        NodeList nl = docEle.getElementsByTagName("Product");
+        NodeList nl = docEle.getElementsByTagName("product");
         if(nl != null && nl.getLength() > 0) {
             for(int i = 0 ; i < nl.getLength();i++) {
                 Element el = (Element)nl.item(i);
@@ -51,12 +50,20 @@ public class ProductDomParser {
         String title = getTextValue(empEl, "title");
         Money price = getMoneyValue(empEl, "price");
         int count = getIntValue(empEl, "count");
-        Map parameter = getMapValue(empEl, "parameter");
 
-
-        Product e = new Product(id, title, price, parameter, count);
-
+        Product e = new Product(id, title, price, count);
+        getParameters(e, empEl);
         return e;
+    }
+
+    private void getParameters(Product e, Element empEl) {
+        NodeList paramNL = empEl.getChildNodes().item(9).getChildNodes();
+        for (int i = 1; i < paramNL.getLength(); i+=2) {
+            Element paramEl = (Element) paramNL.item(i);
+            String key = paramEl.getTagName();
+            String val = paramEl.getFirstChild().getNodeValue();
+            e.addParameter(key, val);
+        }
     }
 
     private String getTextValue(Element ele, String tagName) {
@@ -71,7 +78,7 @@ public class ProductDomParser {
     }
 
     private Map getMapValue(Element ele, String tagName) {
-        Map<String, String> parameter = new HashMap<>();
+        Map<String, String> parameter = new TreeMap<>();
         String key, value;
 
         NodeList nl1 = ele.getElementsByTagName(tagName);

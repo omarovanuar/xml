@@ -1,7 +1,6 @@
 package com.epam.anuar.store.xml.creator;
 
 import com.epam.anuar.store.model.Product;
-import com.epam.anuar.store.model.User;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 import org.w3c.dom.Document;
@@ -15,6 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ProductXmlBuilder {
@@ -71,14 +71,16 @@ public class ProductXmlBuilder {
         countEle.appendChild(countText);
         productEle.appendChild(countEle);
 
-        Object[] key = b.getParameter().keySet().toArray();
-        Object[] value = b.getParameter().values().toArray();
+        String[] key = new String[b.getParameter().keySet().size()];
+        b.getParameter().keySet().toArray(key);
+        String[] value = new String[b.getParameter().values().size()];
+        b.getParameter().values().toArray(value);
 
         Element paramEle = dom.createElement("parameter");
         for (int i = 0; i < b.getParameter().size(); i++) {
             if (b.getParameter().keySet().iterator().hasNext()) {
-                Element paramMapEle = dom.createElement(key[i].toString());
-                Text paramText = dom.createTextNode(value[i].toString());
+                Element paramMapEle = dom.createElement(key[i]);
+                Text paramText = dom.createTextNode(value[i]);
                 paramMapEle.appendChild(paramText);
                 paramEle.appendChild(paramMapEle);
             }

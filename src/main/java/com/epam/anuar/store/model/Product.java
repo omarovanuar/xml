@@ -4,12 +4,13 @@ import org.joda.money.Money;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 // TODO Unfinished class
 public class Product extends BaseEntity{
     private String title;
     private Money price = Money.parse("KZT 0");
-    private Map<String, String> parameter = new HashMap<>();
+    private Map<String, String> parameter = new TreeMap<>();
     private boolean available;
     private Integer count;
 
