@@ -11,6 +11,7 @@ import static com.epam.anuar.store.model.Service.formatDate;
 public class PerformFactory {
     private List<Product> productArray = new ArrayList<>();
     private ArrayList<User> userArray = new ArrayList<>();
+    private ArrayList<Cart> cartArray = new ArrayList<>();
 
     public void perform(){
 
@@ -111,12 +112,17 @@ public class PerformFactory {
         user5.setPassword("saj0uvjij2k");
         userArray.add(user5);
 
+
         Cart cart1 = new Cart(1000, formatDate("03.02.2015 15:00"));
         cart1.addCartProduct(product1, product6, product7);
         cart1.calculateProductListPrice();
+        cartArray.add(cart1);
         Cart cart2 = new Cart(1001, formatDate("23.04.2015 12:17"));
         cart2.addCartProduct(product2, product5, product6);
         cart2.calculateProductListPrice();
+        cartArray.add(cart2);
+
+        System.out.println(cart1);
 
         Order order1 = new Order(200, userArray.get(2), cart1, formatDate("03.02.2015 15:24"));
         Order order2 = new Order(201, userArray.get(4), cart2, formatDate("24.04.2015 14:17"));
@@ -132,5 +138,9 @@ public class PerformFactory {
 
     public ArrayList<User> getUserArray() {
         return userArray;
+    }
+
+    public ArrayList<Cart> getCartArray() {
+        return cartArray;
     }
 }

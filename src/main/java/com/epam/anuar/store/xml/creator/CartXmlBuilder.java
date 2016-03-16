@@ -39,53 +39,31 @@ public class CartXmlBuilder {
         idEle.appendChild(idText);
         cartEle.appendChild(idEle);
 
-//        Element statusEle = dom.createElement("createDate");
-//        Text statusText = dom.createTextNode(b.getStatus().toString());
-//        statusEle.appendChild(statusText);
-//        userEle.appendChild(statusEle);
-//
-//        Element nameEle = dom.createElement("name");
-//        Text nameText = dom.createTextNode(b.getName());
-//        nameEle.appendChild(nameText);
-//        userEle.appendChild(nameEle);
-//
-//        Element addressEle = dom.createElement("address");
-//        Text addressText = dom.createTextNode(b.getAddress());
-//        addressEle.appendChild(addressText);
-//        userEle.appendChild(addressEle);
-//
-//        Element phoneNumberEle = dom.createElement("phoneNumber");
-//        Text phoneNumberText = dom.createTextNode(b.getPhoneNumber());
-//        phoneNumberEle.appendChild(phoneNumberText);
-//        userEle.appendChild(phoneNumberEle);
-//
-//        Element creditCardEle = dom.createElement("creditCard");
-//        Text creditCardText = dom.createTextNode(b.getCreditCard());
-//        creditCardEle.appendChild(creditCardText);
-//        userEle.appendChild(creditCardEle);
-//
-//        Element emailEle = dom.createElement("email");
-//        Text emailText = dom.createTextNode(b.getEmail());
-//        emailEle.appendChild(emailText);
-//        userEle.appendChild(emailEle);
-//
-//        Element walletEle = dom.createElement("wallet");
-//        Text walletText = dom.createTextNode(b.getWallet().toString());
-//        walletEle.appendChild(walletText);
-//        userEle.appendChild(walletEle);
-//
-//        Element loginEle = dom.createElement("login");
-//        Text loginText = dom.createTextNode(b.getLogin());
-//        loginEle.appendChild(loginText);
-//        userEle.appendChild(loginEle);
-//
-//        Element passEle = dom.createElement("password");
-//        Text passText = dom.createTextNode(b.getPassword());
-//        passEle.appendChild(passText);
-//        userEle.appendChild(passEle);
+        Element createDateEle = dom.createElement("createDate");
+        Text createDateText = dom.createTextNode(b.getCreateDate().toString());
+        createDateEle.appendChild(createDateText);
+        cartEle.appendChild(createDateEle);
+
+        Element productListEle = dom.createElement("productList");
+        for (int i = 0; i < b.getProductList().size(); i++) {
+            if (b.getProductList().iterator().hasNext()) {
+                Element productEle = dom.createElement("product");
+                productEle.setAttribute("id", b.getProductList().get(i).getId().toString());
+                Text productText = dom.createTextNode(b.getProductList().get(i).getTitle());
+                productEle.appendChild(productText);
+                productListEle.appendChild(productEle);
+            }
+        }
+
+        cartEle.appendChild(productListEle);
+
+
+        Element priceEle = dom.createElement("productListPrice");
+        Text priceText = dom.createTextNode(b.getProductListPrice().toString());
+        priceEle.appendChild(priceText);
+        cartEle.appendChild(priceEle);
 
         return cartEle;
-
     }
 
     public void printToFile(){
