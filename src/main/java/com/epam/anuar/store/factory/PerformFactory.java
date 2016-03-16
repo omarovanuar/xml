@@ -4,13 +4,13 @@ import com.epam.anuar.store.model.*;
 import org.joda.money.Money;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.epam.anuar.store.model.Service.formatDate;
 
 public class PerformFactory {
-    public List<Product> productArray = new ArrayList<>();
+    private List<Product> productArray = new ArrayList<>();
+    private ArrayList<User> userArray = new ArrayList<>();
 
     public void perform(){
 
@@ -60,42 +60,56 @@ public class PerformFactory {
 
 //        Collections.sort(productArray, Service.PRODUCT_PRICE_COMPARATOR);
 
-        ArrayList<User> userList = new ArrayList<>();
-        userList.add(new User(1, User.Status.ADMIN,
+        User user1 = new User(1, User.Status.ADMIN,
                 "Togayev Noyan",
                 "Yzeva 16-22",
                 "8-707-4728462",
                 "Center Credit 2345-8797-1652-5432",
                 "togayev.n@mail.ru",
-                Money.parse("KZT 10000")));
-        userList.add(new User(2, User.Status.MODERATOR,
+                Money.parse("KZT 10000"));
+        user1.setLogin("togay");
+        user1.setPassword("jd98dh9hr1");
+        userArray.add(user1);
+        User user2 = new User(2, User.Status.MODERATOR,
                 "Daukaev Roman",
                 "17 mkr-33",
                 "8-771-8973285",
                 "Center Credit 8974-2143-0823-2948",
                 "simuran@mail.ru",
-                Money.parse("KZT 20000")));
-        userList.add(new User(3, User.Status.REGISTERED_USER,
+                Money.parse("KZT 20000"));
+        user2.setLogin("simurashka");
+        user2.setPassword("asdm09vjj");
+        userArray.add(user2);
+        User user3 = new User(3, User.Status.REGISTERED_USER,
                 "Golovin Mikhail",
                 "Gogolya 13-41",
                 "8-701-8923753",
                 "Forte Bank 8973-2421-4235-4643",
                 "mike91@mail.ru",
-                Money.parse("KZT 30000")));
-        userList.add(new User(4, User.Status.REGISTERED_USER,
+                Money.parse("KZT 30000"));
+        user3.setLogin("mike91");
+        user3.setPassword("fk092j3fmdlk");
+        userArray.add(user3);
+        User user4 = new User(4, User.Status.REGISTERED_USER,
                 "Almukhanov Aset",
                 "Shahterov 2-15",
                 "8-701-2342420",
                 "Halyk Bank 3257-9142-5632-6321",
                 "almukhanov@mail.ru",
-                Money.parse("KZT 20000")));
-        userList.add(new User(5, User.Status.REGISTERED_USER,
+                Money.parse("KZT 20000"));
+        user4.setLogin("almuhaset");
+        user4.setPassword("juuv283uhfi");
+        userArray.add(user4);
+        User user5 = new User(5, User.Status.REGISTERED_USER,
                 "Smagulova Dinara",
                 "Mira B. 27a-6",
                 "8-778-7774799",
                 "Kaspi Bank 9752-8298-1841-5216",
                 "dinara_16_92@mail.ru",
-                Money.parse("KZT 50000")));
+                Money.parse("KZT 50000"));
+        user5.setLogin("duny922016");
+        user5.setPassword("saj0uvjij2k");
+        userArray.add(user5);
 
         Cart cart1 = new Cart(1000, formatDate("03.02.2015 15:00"));
         cart1.addCartProduct(product1, product6, product7);
@@ -104,14 +118,19 @@ public class PerformFactory {
         cart2.addCartProduct(product2, product5, product6);
         cart2.calculateProductListPrice();
 
-        Order order1 = new Order(200, userList.get(2), cart1, formatDate("03.02.2015 15:24"));
-        Order order2 = new Order(201, userList.get(4), cart2, formatDate("24.04.2015 14:17"));
+        Order order1 = new Order(200, userArray.get(2), cart1, formatDate("03.02.2015 15:24"));
+        Order order2 = new Order(201, userArray.get(4), cart2, formatDate("24.04.2015 14:17"));
 
         ShipmentReceipt shipment1 = new ShipmentReceipt(500, "KAZPOST", Money.parse("KZT 300"), "Golubie prudi 13-1", order1);
         ShipmentReceipt shipment2 = new ShipmentReceipt(501, "KAZPOST", Money.parse("KZT 300"), "Satibaldina 4-13", order1);
 
     }
 
+    public List<Product> getProductArray() {
+        return productArray;
+    }
 
-
+    public ArrayList<User> getUserArray() {
+        return userArray;
+    }
 }

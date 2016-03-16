@@ -18,36 +18,23 @@ import java.util.List;
 
 public class UserXmlBuilder {
     List<User> users = new ArrayList<>();
-    private Document dom;
+    private Document dom = null;
 
     public UserXmlBuilder(List<User> users) {
         this.users = users;
     }
 
-//    public void createDocument() {
-//        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//        try {
-//            DocumentBuilder db = dbf.newDocumentBuilder();
-//            dom = db.newDocument();
-//
-//        }catch(ParserConfigurationException pce) {
-//            System.out.println("Error while trying to instantiate DocumentBuilder " + pce);
-//            System.exit(1);
-//        }
-//
-//    }
-
     public void createDOMTree(){
         Element rootEle = dom.createElement("Users");
         dom.appendChild(rootEle);
         for (User b : users) {
-            Element userEle = createBookElement(b);
+            Element userEle = createUserElement(b);
             rootEle.appendChild(userEle);
         }
 
     }
 
-    private Element createBookElement(User b){
+    private Element createUserElement(User b){
 
         Element userEle = dom.createElement("User");
         Element idEle = dom.createElement("id");
@@ -121,4 +108,7 @@ public class UserXmlBuilder {
         }
     }
 
+    public void setDom(Document dom) {
+        this.dom = dom;
+    }
 }

@@ -19,23 +19,10 @@ import java.util.List;
 
 public class ProductXmlBuilder {
     List<Product> products = new ArrayList<>();
-    private Document dom;
+    private Document dom = null;
 
     public ProductXmlBuilder(List<Product> products) {
         this.products = products;
-    }
-
-    public void createDocument() {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            dom = db.newDocument();
-
-        }catch(ParserConfigurationException pce) {
-            System.out.println("Error while trying to instantiate DocumentBuilder " + pce);
-            System.exit(1);
-        }
-
     }
 
     public void createDOMTree(){
@@ -108,4 +95,9 @@ public class ProductXmlBuilder {
             ie.printStackTrace();
         }
     }
+
+    public void setDom(Document dom) {
+        this.dom = dom;
+    }
+
 }

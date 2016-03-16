@@ -21,6 +21,13 @@ public class Cart extends BaseEntity {
         this.createDate = createDate;
     }
 
+    public Cart(Integer id, List<Product> productList, DateTime createDate, Money productListPrice) {
+        super(id);
+        this.productList = productList;
+        this.createDate = createDate;
+        this.productListPrice = productListPrice;
+    }
+
     public Money calculateProductListPrice(){
         productListPrice = Money.parse("KZT 0");
         for (Product product : productList) {

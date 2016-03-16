@@ -1,15 +1,15 @@
 package com.epam.anuar.store;
 
 import com.epam.anuar.store.factory.PerformFactory;
-import com.epam.anuar.store.model.Product;
 import com.epam.anuar.store.xml.creator.ProductXmlBuilder;
-import com.epam.anuar.store.xml.parser.ProductDomParser;
-import com.epam.anuar.store.xml.parser.ProductSAXParser;
+import com.epam.anuar.store.xml.creator.UserXmlBuilder;
+
+import static com.epam.anuar.store.xml.creator.XmlBuilderService.*;
 
 public class Runner {
     public static void main(String[] args) {
-//        PerformFactory performFactory = new PerformFactory();
-//        performFactory.perform();
+        PerformFactory performFactory = new PerformFactory();
+        performFactory.perform();
 
 //        UserDomParser udp = new UserDomParser();
 //        udp.parseXmlFile();
@@ -25,23 +25,23 @@ public class Runner {
 //        userSAXParser.parseDocument();
 //        userSAXParser.printData();
 //
-//        UserXmlBuilder udc1 = new UserXmlBuilder(userSAXParser.getUsers());
-//        udc.createDocument();
-//        udc.createDOMTree();
-//        udc.printToFile();
+        UserXmlBuilder udc = new UserXmlBuilder(performFactory.getUserArray());
+        udc.setDom(createDocument());
+        udc.createDOMTree();
+        udc.printToFile();
 
 //        ProductDomParser pdp = new ProductDomParser();
 //        pdp.parseXmlFile();
 //        pdp.parseDocument();
 //        pdp.printData();
 
-        ProductSAXParser productSAXParser = new ProductSAXParser();
-        productSAXParser.parseDocument();
-        productSAXParser.printData();
+//        ProductSAXParser productSAXParser = new ProductSAXParser();
+//        productSAXParser.parseDocument();
+//        productSAXParser.printData();
 
-//        ProductXmlBuilder productXmlCreator = new ProductXmlBuilder(performFactory.productArray);
-//        productXmlCreator.createDocument();
-//        productXmlCreator.createDOMTree();
-//        productXmlCreator.printToFile();
+        ProductXmlBuilder productXmlBuilder = new ProductXmlBuilder(performFactory.getProductArray());
+        productXmlBuilder.setDom(createDocument());
+        productXmlBuilder.createDOMTree();
+        productXmlBuilder.printToFile();
     }
 }
