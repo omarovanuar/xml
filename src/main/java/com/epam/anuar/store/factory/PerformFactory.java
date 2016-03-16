@@ -55,7 +55,7 @@ public class PerformFactory {
 
         Product product7 = new Product(106, "Guitar strings D'dario", Money.parse("KZT 10.5"), 35);
         product7.addParameter("diameters", "10, 11, 12, 13, 14, 15");
-        product7.addParameter("material", "Silver");
+        product7.addParameter("material", "silver");
         productArray.add(product7);
 
 //        Collections.sort(productArray, Service.PRODUCT_PRICE_COMPARATOR);

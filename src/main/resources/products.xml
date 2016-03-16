@@ -20,7 +20,7 @@
             <color>black</color>
             <fretNumber>20</fretNumber>
             <pickUpScheme>H_S</pickUpScheme>
-            <stringsNumber>12</stringsNumber>
+            <stringsNumber>6</stringsNumber>
             <toneRegulatorNumber>2</toneRegulatorNumber>
         </parameter>
     </product>
@@ -31,9 +31,9 @@
         <count>3</count>
         <parameter>
             <color>brown</color>
-            <fretNumber>20</fretNumber>
+            <fretNumber>21</fretNumber>
             <preamplifier>yes</preamplifier>
-            <stringsNumber>12</stringsNumber>
+            <stringsNumber>6</stringsNumber>
             <volumeInstallation>regulator</volumeInstallation>
         </parameter>
     </product>
@@ -63,7 +63,7 @@
     <product>
         <id>105</id>
         <title>Case for Fender Squire electroguitar</title>
-        <price>KZT 21.3</price>
+        <price>KZT 21.30</price>
         <count>10</count>
         <parameter>
             <color>black</color>
@@ -72,7 +72,7 @@
     <product>
         <id>106</id>
         <title>Guitar strings D'dario</title>
-        <price>KZT 10.5</price>
+        <price>KZT 10.50</price>
         <count>35</count>
         <parameter>
             <diameters>10, 11, 12, 13, 14, 15</diameters>

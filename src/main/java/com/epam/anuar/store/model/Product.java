@@ -2,11 +2,9 @@ package com.epam.anuar.store.model;
 
 import org.joda.money.Money;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-// TODO Unfinished class
 public class Product extends BaseEntity{
     private String title;
     private Money price = Money.parse("KZT 0");
@@ -66,7 +64,7 @@ public class Product extends BaseEntity{
     }
 
     public String stringAvailable() {
-        return (this.available) ?  "yes" : "no";
+        return (this.count > 0) ?  "yes" : "no";
     }
 
     public String getTitle() {
@@ -98,7 +96,7 @@ public class Product extends BaseEntity{
     }
 
     public void setCount(Integer count) {
-        if (count < 0) this.count = count;
+        if (count > 0) this.count = count;
         else this.count = 0;
     }
 

@@ -1,8 +1,10 @@
 package com.epam.anuar.store;
 
 import com.epam.anuar.store.factory.PerformFactory;
+import com.epam.anuar.store.model.Product;
 import com.epam.anuar.store.xml.creator.ProductXmlBuilder;
 import com.epam.anuar.store.xml.parser.ProductDomParser;
+import com.epam.anuar.store.xml.parser.ProductSAXParser;
 
 public class Runner {
     public static void main(String[] args) {
@@ -32,6 +34,10 @@ public class Runner {
 //        pdp.parseXmlFile();
 //        pdp.parseDocument();
 //        pdp.printData();
+
+        ProductSAXParser productSAXParser = new ProductSAXParser();
+        productSAXParser.parseDocument();
+        productSAXParser.printData();
 
 //        ProductXmlBuilder productXmlCreator = new ProductXmlBuilder(performFactory.productArray);
 //        productXmlCreator.createDocument();
