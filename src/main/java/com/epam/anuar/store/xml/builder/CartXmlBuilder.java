@@ -1,4 +1,4 @@
-package com.epam.anuar.store.xml.creator;
+package com.epam.anuar.store.xml.builder;
 
 import com.epam.anuar.store.model.Cart;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;

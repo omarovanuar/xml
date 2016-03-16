@@ -1,4 +1,4 @@
-package com.epam.anuar.store.xml.creator;
+package com.epam.anuar.store.xml.builder;
 
 import org.w3c.dom.Document;
 

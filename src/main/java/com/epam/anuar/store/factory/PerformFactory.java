@@ -122,8 +122,6 @@ public class PerformFactory {
         cart2.calculateProductListPrice();
         cartArray.add(cart2);
 
-        System.out.println(cart1);
-
         Order order1 = new Order(200, userArray.get(2), cart1, formatDate("03.02.2015 15:24"));
         Order order2 = new Order(201, userArray.get(4), cart2, formatDate("24.04.2015 14:17"));
 

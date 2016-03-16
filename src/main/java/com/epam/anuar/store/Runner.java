@@ -1,15 +1,13 @@
 package com.epam.anuar.store;
 
 import com.epam.anuar.store.factory.PerformFactory;
-import com.epam.anuar.store.xml.creator.CartXmlBuilder;
-import com.epam.anuar.store.xml.creator.ProductXmlBuilder;
-import com.epam.anuar.store.xml.creator.UserXmlBuilder;
+import com.epam.anuar.store.xml.builder.CartXmlBuilder;
+import com.epam.anuar.store.xml.builder.ProductXmlBuilder;
+import com.epam.anuar.store.xml.builder.UserXmlBuilder;
 import com.epam.anuar.store.xml.parser.ProductDomParser;
-import com.epam.anuar.store.xml.parser.ProductSAXParser;
 import com.epam.anuar.store.xml.parser.UserDomParser;
-import com.epam.anuar.store.xml.parser.UserSAXParser;
 
-import static com.epam.anuar.store.xml.creator.XmlBuilderService.*;
+import static com.epam.anuar.store.xml.builder.XmlBuilderService.*;
 
 public class Runner {
     public static void main(String[] args) {

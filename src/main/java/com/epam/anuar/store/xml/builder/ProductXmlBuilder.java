@@ -1,4 +1,4 @@
-package com.epam.anuar.store.xml.creator;
+package com.epam.anuar.store.xml.builder;
 
 import com.epam.anuar.store.model.Product;
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
@@ -7,14 +7,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class ProductXmlBuilder {
