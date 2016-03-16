@@ -5,7 +5,9 @@ import com.epam.anuar.store.xml.builder.CartXmlBuilder;
 import com.epam.anuar.store.xml.builder.ProductXmlBuilder;
 import com.epam.anuar.store.xml.builder.UserXmlBuilder;
 import com.epam.anuar.store.xml.parser.ProductDomParser;
+import com.epam.anuar.store.xml.parser.ProductSAXParser;
 import com.epam.anuar.store.xml.parser.UserDomParser;
+import com.epam.anuar.store.xml.parser.UserSAXParser;
 
 import static com.epam.anuar.store.xml.builder.XmlBuilderService.*;
 
@@ -19,9 +21,9 @@ public class Runner {
         udp.parseDocument();
         udp.printData();
 
-//        UserSAXParser userSAXParser = new UserSAXParser();
-//        userSAXParser.parseDocument();
-//        userSAXParser.printData();
+        UserSAXParser userSAXParser = new UserSAXParser();
+        userSAXParser.parseDocument();
+        userSAXParser.printData();
 
         UserXmlBuilder udc = new UserXmlBuilder(performFactory.getUserArray());
         udc.setDom(createDocument());
@@ -33,9 +35,9 @@ public class Runner {
         pdp.parseDocument();
         pdp.printData();
 
-//        ProductSAXParser productSAXParser = new ProductSAXParser();
-//        productSAXParser.parseDocument();
-//        productSAXParser.printData();
+        ProductSAXParser productSAXParser = new ProductSAXParser();
+        productSAXParser.parseDocument();
+        productSAXParser.printData();
 
         ProductXmlBuilder productXmlBuilder = new ProductXmlBuilder(performFactory.getProductArray());
         productXmlBuilder.setDom(createDocument());

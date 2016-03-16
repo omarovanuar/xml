@@ -22,7 +22,7 @@ public class UserXmlBuilder {
     }
 
     public void createDOMTree(){
-        Element rootEle = dom.createElement("Users");
+        Element rootEle = dom.createElement("users");
         dom.appendChild(rootEle);
         for (User b : users) {
             Element userEle = createUserElement(b);
@@ -33,7 +33,7 @@ public class UserXmlBuilder {
 
     private Element createUserElement(User b){
 
-        Element userEle = dom.createElement("User");
+        Element userEle = dom.createElement("user");
         Element idEle = dom.createElement("id");
         Text idText = dom.createTextNode(b.getId().toString());
         idEle.appendChild(idText);

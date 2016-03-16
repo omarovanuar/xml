@@ -32,7 +32,7 @@ public class UserSAXParser extends DefaultHandler{
 
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         tempVal = "";
-        if(qName.equalsIgnoreCase("User")) {
+        if(qName.equalsIgnoreCase("user")) {
             tempUser = new User();
         }
     }
@@ -44,7 +44,7 @@ public class UserSAXParser extends DefaultHandler{
 
     public void endElement(String uri, String localName, String qName) throws SAXException {
         switch (qName){
-            case "User":
+            case "user":
                 users.add(tempUser);
                 break;
             case "id":

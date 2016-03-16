@@ -75,7 +75,6 @@ public class ProductSAXParser extends DefaultHandler {
                     tempProduct.addParameter(param.get(i), param.get(i+1));
                 }
                 flag = false;
-                System.out.println(param);
                 param = new ArrayList<>();
                 break;
         }
