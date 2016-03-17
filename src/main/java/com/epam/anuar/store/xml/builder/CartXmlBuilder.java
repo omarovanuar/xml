@@ -22,7 +22,7 @@ public class CartXmlBuilder {
     }
 
     public void createDOMTree(){
-        Element rootEle = dom.createElement("Carts");
+        Element rootEle = dom.createElement("carts");
         dom.appendChild(rootEle);
         for (Cart b : carts) {
             Element userEle = createCartElement(b);
@@ -33,7 +33,7 @@ public class CartXmlBuilder {
 
     private Element createCartElement(Cart b){
 
-        Element cartEle = dom.createElement("Cart");
+        Element cartEle = dom.createElement("cart");
         Element idEle = dom.createElement("id");
         Text idText = dom.createTextNode(b.getId().toString());
         idEle.appendChild(idText);

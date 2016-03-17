@@ -10,11 +10,10 @@ import static com.epam.anuar.store.model.Service.formatDate;
 
 public class PerformFactory {
     private List<Product> productArray = new ArrayList<>();
-    private ArrayList<User> userArray = new ArrayList<>();
-    private ArrayList<Cart> cartArray = new ArrayList<>();
+    private List<User> userArray = new ArrayList<>();
+    private List<Cart> cartArray = new ArrayList<>();
 
-    public void perform(){
-
+    {
         Product product1 = new Product(100, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), 3);
         product1.addParameter("color", "red-black");
         product1.addParameter("stringsNumber", "12");
@@ -127,18 +126,26 @@ public class PerformFactory {
 
         ShipmentReceipt shipment1 = new ShipmentReceipt(500, "KAZPOST", Money.parse("KZT 300"), "Golubie prudi 13-1", order1);
         ShipmentReceipt shipment2 = new ShipmentReceipt(501, "KAZPOST", Money.parse("KZT 300"), "Satibaldina 4-13", order1);
-
     }
 
     public List<Product> getProductArray() {
         return productArray;
     }
 
-    public ArrayList<User> getUserArray() {
+    public Product getProductById(Integer id) {
+        for (int i = 0; i < productArray.size(); i++) {
+            if (productArray.get(i).getId().equals(id)){
+                return productArray.get(i);
+            }
+        }
+        return null;
+    }
+
+    public List<User> getUserArray() {
         return userArray;
     }
 
-    public ArrayList<Cart> getCartArray() {
+    public List<Cart> getCartArray() {
         return cartArray;
     }
 }
