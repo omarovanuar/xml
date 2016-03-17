@@ -30,7 +30,7 @@ public class CartDomParser {
 
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            dom = db.parse(Runner.class.getClassLoader().getResourceAsStream("carts1.xml"));
+            dom = db.parse(Runner.class.getClassLoader().getResourceAsStream("carts.xml"));
         }catch(ParserConfigurationException | SAXException | IOException pce) {
             pce.printStackTrace();
         }
@@ -63,7 +63,6 @@ public class CartDomParser {
 
     private void getProductList(Cart e, Element empEl) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         NodeList productListNL = empEl.getChildNodes().item(5).getChildNodes();
-        System.out.println(productListNL.toString());
         for (int i = 1; i < productListNL.getLength(); i+=2) {
             Element productEl = (Element) productListNL.item(i);
             String id = productEl.getAttribute("id");

@@ -74,7 +74,7 @@ public class CartXmlBuilder {
             format.setIndenting(true);
 
             XMLSerializer serializer = new XMLSerializer(
-                    new FileOutputStream(new File("src/main/resources/carts1.xml")), format);
+                    new FileOutputStream(new File("src/main/resources/carts.xml")), format);
 
             serializer.serialize(dom);
 

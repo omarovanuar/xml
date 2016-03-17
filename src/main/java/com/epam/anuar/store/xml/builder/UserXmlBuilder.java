@@ -96,7 +96,7 @@ public class UserXmlBuilder {
             format.setIndenting(true);
 
             XMLSerializer serializer = new XMLSerializer(
-                    new FileOutputStream(new File("src/main/resources/users1.xml")), format);
+                    new FileOutputStream(new File("src/main/resources/users.xml")), format);
 
             serializer.serialize(dom);
 
