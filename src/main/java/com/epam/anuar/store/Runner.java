@@ -1,59 +1,65 @@
 package com.epam.anuar.store;
 
-import com.epam.anuar.store.factory.PerformFactory;
-import com.epam.anuar.store.xml.builder.CartXmlBuilder;
-import com.epam.anuar.store.xml.builder.ProductXmlBuilder;
-import com.epam.anuar.store.xml.builder.UserXmlBuilder;
-import com.epam.anuar.store.xml.parser.*;
+import com.epam.anuar.store.xml.builder.*;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-import static com.epam.anuar.store.xml.builder.XmlBuilderService.*;
-
 public class Runner {
-    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        PerformFactory performFactory = new PerformFactory();
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, IOException {
+//        PerformFactory performFactory = new PerformFactory();
+//
+//        UserXmlBuilder userXmlBuilder = new UserXmlBuilder(performFactory.getUserArray());
+//        userXmlBuilder.setDom(createDocument());
+//        userXmlBuilder.createDOMTree();
+//        userXmlBuilder.printToFile();
+//
+//        UserDomParser userDomParser = new UserDomParser();
+//        userDomParser.parseXmlFile();
+//        userDomParser.parseDocument();
+//        userDomParser.printData();
+//
+//        UserSAXParser userSAXParser = new UserSAXParser();
+//        userSAXParser.parseDocument();
+//        userSAXParser.printData();
+//
+//        ProductXmlBuilder productXmlBuilder = new ProductXmlBuilder(performFactory.getProductArray());
+//        productXmlBuilder.setDom(createDocument());
+//        productXmlBuilder.createDOMTree();
+//        productXmlBuilder.printToFile();
+//
+//        ProductDomParser productDomParser = new ProductDomParser();
+//        productDomParser.parseXmlFile();
+//        productDomParser.parseDocument();
+//        productDomParser.printData();
+//
+//        ProductSAXParser productSAXParser = new ProductSAXParser();
+//        productSAXParser.parseDocument();
+//        productSAXParser.printData();
+//
+//        CartXmlBuilder cartXmlBuilder = new CartXmlBuilder(performFactory.getCartArray());
+//        cartXmlBuilder.setDom(createDocument());
+//        cartXmlBuilder.createDOMTree();
+//        cartXmlBuilder.printToFile();
+//
+//        CartDomParser cartDomParser = new CartDomParser();
+//        cartDomParser.parseXmlFile();
+//        cartDomParser.parseDocument();
+//        cartDomParser.printData();
+//
+//        CartSAXParser cartSAXParser = new CartSAXParser();
+//        cartSAXParser.parseDocument();
+//        cartSAXParser.printData();
+//
+//        OrderXmlBuilder orderXmlBuilder = new OrderXmlBuilder(performFactory.getOrderArray());
+//        orderXmlBuilder.setDom(createDocument());
+//        orderXmlBuilder.createDOMTree();
+//        orderXmlBuilder.printToFile();
 
-        UserXmlBuilder udc = new UserXmlBuilder(performFactory.getUserArray());
-        udc.setDom(createDocument());
-        udc.createDOMTree();
-        udc.printToFile();
-
-        UserDomParser udp = new UserDomParser();
-        udp.parseXmlFile();
-        udp.parseDocument();
-        udp.printData();
-
-        UserSAXParser userSAXParser = new UserSAXParser();
-        userSAXParser.parseDocument();
-        userSAXParser.printData();
-
-        ProductXmlBuilder productXmlBuilder = new ProductXmlBuilder(performFactory.getProductArray());
-        productXmlBuilder.setDom(createDocument());
-        productXmlBuilder.createDOMTree();
-        productXmlBuilder.printToFile();
-
-        ProductDomParser pdp = new ProductDomParser();
-        pdp.parseXmlFile();
-        pdp.parseDocument();
-        pdp.printData();
-
-        ProductSAXParser productSAXParser = new ProductSAXParser();
-        productSAXParser.parseDocument();
-        productSAXParser.printData();
-
-        CartXmlBuilder cartXmlBuilder = new CartXmlBuilder(performFactory.getCartArray());
-        cartXmlBuilder.setDom(createDocument());
-        cartXmlBuilder.createDOMTree();
-        cartXmlBuilder.printToFile();
-
-        CartDomParser cartDomParser = new CartDomParser();
-        cartDomParser.parseXmlFile();
-        cartDomParser.parseDocument();
-        cartDomParser.printData();
-
-        CartSAXParser cartSAXParser = new CartSAXParser();
-        cartSAXParser.parseDocument();
-        cartSAXParser.printData();
+//        UserStAXParser userStAXParser = new UserStAXParser();
+//        userStAXParser.parseSetUsers("users.xml");
+//        userStAXParser.printData();
+        ShipmentJAXB jaxb = new ShipmentJAXB();
+        jaxb.shipmentUnmarshall();
     }
 }

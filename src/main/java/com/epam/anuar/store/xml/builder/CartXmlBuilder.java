@@ -25,8 +25,8 @@ public class CartXmlBuilder {
         Element rootEle = dom.createElement("carts");
         dom.appendChild(rootEle);
         for (Cart b : carts) {
-            Element userEle = createCartElement(b);
-            rootEle.appendChild(userEle);
+            Element cartEle = createCartElement(b);
+            rootEle.appendChild(cartEle);
         }
 
     }

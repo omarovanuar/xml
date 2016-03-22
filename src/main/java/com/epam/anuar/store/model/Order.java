@@ -17,6 +17,11 @@ public class Order extends BaseEntity{
     public Order() {
     }
 
+    public Order(Integer id, String customerName) {
+        super(id);
+        this.customerName = customerName;
+    }
+
     public Order(int id, User user, Cart cart, DateTime executeDate) {
         super(id);
         this.customerName = user.getName();
@@ -57,6 +62,10 @@ public class Order extends BaseEntity{
             name += (product.getTitle() + "\n");
         }
         return name;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
     }
 
     @Override

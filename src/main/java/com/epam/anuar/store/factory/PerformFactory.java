@@ -12,6 +12,7 @@ public class PerformFactory {
     private List<Product> productArray = new ArrayList<>();
     private List<User> userArray = new ArrayList<>();
     private List<Cart> cartArray = new ArrayList<>();
+    private List<Order> orderArray = new ArrayList<>();
 
     {
         Product product1 = new Product(100, "Acoustic Guitar Ibanez-NX-630", Money.parse("KZT 360.99"), 3);
@@ -121,11 +122,14 @@ public class PerformFactory {
         cart2.calculateProductListPrice();
         cartArray.add(cart2);
 
+
         Order order1 = new Order(200, userArray.get(2), cart1, formatDate("03.02.2015 15:24"));
+        orderArray.add(order1);
         Order order2 = new Order(201, userArray.get(4), cart2, formatDate("24.04.2015 14:17"));
+        orderArray.add(order2);
 
         ShipmentReceipt shipment1 = new ShipmentReceipt(500, "KAZPOST", Money.parse("KZT 300"), "Golubie prudi 13-1", order1);
-        ShipmentReceipt shipment2 = new ShipmentReceipt(501, "KAZPOST", Money.parse("KZT 300"), "Satibaldina 4-13", order1);
+        ShipmentReceipt shipment2 = new ShipmentReceipt(501, "KAZPOST", Money.parse("KZT 300"), "Satibaldina 4-13", order2);
     }
 
     public List<Product> getProductArray() {
@@ -133,9 +137,9 @@ public class PerformFactory {
     }
 
     public Product getProductById(Integer id) {
-        for (int i = 0; i < productArray.size(); i++) {
-            if (productArray.get(i).getId().equals(id)){
-                return productArray.get(i);
+        for (Product aProductArray : productArray) {
+            if (aProductArray.getId().equals(id)) {
+                return aProductArray;
             }
         }
         return null;
@@ -147,5 +151,9 @@ public class PerformFactory {
 
     public List<Cart> getCartArray() {
         return cartArray;
+    }
+
+    public List<Order> getOrderArray() {
+        return orderArray;
     }
 }

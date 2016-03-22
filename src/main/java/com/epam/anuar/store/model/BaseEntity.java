@@ -1,5 +1,12 @@
 package com.epam.anuar.store.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 public class BaseEntity {
     private Integer id;
 
@@ -26,7 +33,7 @@ public class BaseEntity {
         if (id != null) {
             return id;
         } else {
-            throw new NullPointerException();
+            return id = 0;
         }
     }
 
